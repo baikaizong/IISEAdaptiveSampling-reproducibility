@@ -1,0 +1,3 @@
+--- Performance Statistics ---
+ Wall Time:   13884.80 sec
+                231.41 min

@@ -1,0 +1,26 @@
+########################################################
+#           SASAM SIMULATION PARAMETER LOG             #
+########################################################
+ 
+ MPI Processes:        5
+ Simu Runs:         2000
+ Target ARL:        200.0000
+ 
+--- SASAM Parameters ---
+===============================================
+          SASAM PARAMETER CONFIGURATION
+===============================================
+Epah_SA             =     0.020000
+miu_min_SA          =     1.000000
+theta_1_SA          =     0.100000
+theta_2_SA          =     0.700000
+Topr_SA             =        1
+Kernel_threshold_SA =     0.000000
+num_kelnear_SA      =       15
+data_loaded_SASAM   = F
+===============================================
+ 
+--- Experiment Config ---
+ Noise Type:    1
+ Back Index:    1
+ Ano Type:      4

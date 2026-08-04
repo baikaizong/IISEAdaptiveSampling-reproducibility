@@ -1,0 +1,29 @@
+ Exploration K:     5.0000
+ Exploitation P:    0.9000
+ Design Radius:     0.1280
+ Calculated Pho:      0.003276
+ Calculated Alpha:    0.728480
+--- Algorithm Params ---
+===============================================
+          mMKSTD PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       10
+Epah_mM              =     0.020000
+alpha_mM             =     0.728480
+pho_mM               =     0.003276
+sigmaprio_mM         =     0.100000
+lambda_mM            =     0.900000
+lambdasq_mM          =     0.810000
+Topr_mM              =        1
+near_Threshold_mM    =       30
+num_kelnear_mM       =       15
+num_disnear_mM       =     2000
+Kernel_threshold_mM  =     0.000000
+initialized_mMKSTD    = T
+data_loaded_mMKSTD    = T
+===============================================
+End of mMKSTD PARAMETER listing
+===============================================
+ 
+ Found Limit:     3.684900
+ IC ARL:        200.752000

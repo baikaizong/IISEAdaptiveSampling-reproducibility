@@ -1,0 +1,22 @@
+### SASAM CONFIG ###
+ Epah:   0.1000
+ Miu:    2.8385
+ T1:     0.1000
+ T2:     0.7000
+===============================================
+          SASAM PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       10
+Epah_SA             =     0.100000
+miu_min_SA          =     2.838471
+theta_1_SA          =     0.100000
+theta_2_SA          =     0.700000
+Topr_SA             =        1
+Kernel_threshold_SA =     0.000000
+num_kelnear_SA      =       15
+data_loaded_SASAM   = F
+===============================================
+ 
+ Noise:    1
+ Back:     2
+ Ano:      5

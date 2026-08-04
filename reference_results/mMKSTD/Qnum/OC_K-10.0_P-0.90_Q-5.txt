@@ -1,0 +1,1 @@
+Amp Radius  OC_Mean OC_Std OC_Q1 OC_Med OC_Q3 OC_Max OC_Min  Exp_Mean Exp_Std Exp_Q1 Exp_Med Exp_Q3 Exp_Max Exp_Min  Num_Mean Num_Std Num_Q1 Num_Med Num_Q3 Num_Max Num_Min

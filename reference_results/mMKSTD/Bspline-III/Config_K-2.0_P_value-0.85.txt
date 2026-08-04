@@ -1,0 +1,47 @@
+########################################################
+#               SIMULATION PARAMETER LOG               #
+########################################################
+ 
+--- System & MPI ---
+ MPI Processes:       20
+ 
+--- Global Settings ---
+ Simu Runs:     5000
+ Target ARL:     200.0000
+ 
+--- mMKSTD Parameters ---
+ Exploration K:     2.0000
+ Exploitation P:    0.8500
+ Design Radius:     0.0962
+ Calculated Pho:      0.004623
+ Calculated Alpha:    0.058317
+ Calculated delta_min:    4.552198
+ num_samplingnodes:    0.000000
+===============================================
+          mMKSTD PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       30
+Epah_mM              =     0.020000
+alpha_mM             =     0.058317
+pho_mM               =     0.004623
+sigmaprio_mM         =     0.100000
+lambda_mM            =     0.900000
+lambdasq_mM          =     0.810000
+Topr_mM              =        1
+near_Threshold_mM    =       10
+num_kelnear_mM       =       15
+num_disnear_mM       =     2000
+Kernel_threshold_mM  =     0.000000
+initialized_mMKSTD    = T
+data_loaded_mMKSTD    = T
+===============================================
+End of mMKSTD PARAMETER listing
+===============================================
+ 
+--- Experiment Config ---
+ Noise Type:    1
+ Back Index:    1
+ Ano Type:      4
+ 
+ Found Limit:     8.076140
+ IC ARL:        200.808200

@@ -1,0 +1,29 @@
+### SIMULATION PARAMETER LOG ###
+ Loop Index:           3
+ Design Radius:   0.1000
+ Calculated Pho:    0.000579
+ 
+--- Algorithm Params ---
+===============================================
+          mMKSTD PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =        5
+Epah_mM              =     0.020000
+alpha_mM             =     1.542048
+pho_mM               =     0.000579
+sigmaprio_mM         =     0.100000
+lambda_mM            =     0.900000
+lambdasq_mM          =     0.810000
+Topr_mM              =        1
+near_Threshold_mM    =       10
+num_kelnear_mM       =       15
+num_disnear_mM       =     2000
+Kernel_threshold_mM  =     0.000000
+initialized_mMKSTD    = T
+data_loaded_mMKSTD    = T
+===============================================
+End of mMKSTD PARAMETER listing
+===============================================
+ 
+ Found Limit:     3.535397
+ IC ARL:        198.893000

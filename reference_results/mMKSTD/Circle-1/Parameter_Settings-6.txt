@@ -1,0 +1,37 @@
+########################################################
+#           mMKSTD Circle TEST PARAMETER LOG            #
+########################################################
+ 
+ MPI Processes:       20
+ Simu Runs:         2000
+ Target ARL:        200.0000
+ 
+--- Algorithm Params ---
+===============================================
+          mMKSTD PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       10
+Epah_mM              =     0.020000
+alpha_mM             =     6.000000
+pho_mM               =     0.000100
+sigmaprio_mM         =     0.100000
+lambda_mM            =     0.900000
+lambdasq_mM          =     0.810000
+Topr_mM              =        1
+near_Threshold_mM    =       10
+num_kelnear_mM       =       15
+num_disnear_mM       =     2000
+Kernel_threshold_mM  =     0.000000
+initialized_mMKSTD    = T
+data_loaded_mMKSTD    = F
+===============================================
+End of mMKSTD PARAMETER listing
+===============================================
+ 
+--- Experiment Config ---
+ Noise Type:    1
+ Back Index:    0
+ Ano Type:      1
+ 
+ Found Limit:     3.729281
+ IC ARL:        198.885000

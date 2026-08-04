@@ -1,0 +1,2 @@
+ === In-Control Limit Search ===
+ Limit=   16.4400000000000        ARL=   198.612500000000     

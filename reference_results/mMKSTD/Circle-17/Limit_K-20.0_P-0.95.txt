@@ -1,0 +1,3 @@
+Iter_Limit,  Result_ARL,  Total_Calc_Time(s)
+      4.288519      372.534800       3330.8977
+ Final Limit:   4.28851899865918       ARL:   372.534800000000     

@@ -1,0 +1,6 @@
+--- Performance Statistics ---
+ Wall Time:      34.98 sec
+                  0.58 min
+--- Performance Statistics ---
+ Wall Time:      12.43 sec
+                  0.21 min

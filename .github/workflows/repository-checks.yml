@@ -1,0 +1,31 @@
+name: Repository checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject oversized files and build products
+        shell: bash
+        run: |
+          if find . -type f -size +95M -print -quit | grep -q .; then
+            echo "Files larger than 95 MiB are not allowed."
+            find . -type f -size +95M -print
+            exit 1
+          fi
+          if find . -type f \( -name '*.obj' -o -name '*.mod' -o -name '*.exe' -o -name '*.pdb' \) -print -quit | grep -q .; then
+            echo "Compiled artifacts must not be committed."
+            exit 1
+          fi
+      - name: Reject workstation-specific absolute paths
+        shell: bash
+        run: |
+          if grep -RInE --exclude-dir=.git \
+              '(^|[[:space:]"=])([A-Za-z]:[\\/]|/(Users|home|opt|tmp|var)/)' .; then
+            echo "A workstation-specific absolute path was found in a tracked file."
+            exit 1
+          fi

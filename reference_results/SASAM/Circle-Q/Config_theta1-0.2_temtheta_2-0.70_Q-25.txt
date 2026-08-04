@@ -1,0 +1,29 @@
+########################################################
+#           SASAM KERNEL TEST PARAMETER LOG            #
+########################################################
+ 
+ MPI Processes:       20
+ Simu Runs:         5000
+ Target ARL:        200.0000
+ 
+--- SASAM Parameters ---
+===============================================
+          SASAM PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       25
+Epah_SA             =     0.020000
+miu_min_SA          =     1.000000
+theta_1_SA          =     0.200000
+theta_2_SA          =     0.700000
+Topr_SA             =        1
+Kernel_threshold_SA =     0.000000
+num_kelnear_SA      =       15
+data_loaded_SASAM   = T
+===============================================
+ 
+--- Experiment Config ---
+ Noise Type:    1
+ Back Index:    0
+ 
+ Found Limit:     5.695312
+ IC ARL:        200.264800

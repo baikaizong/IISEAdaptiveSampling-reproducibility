@@ -1,0 +1,18 @@
+### CDS CONFIG ###
+ Miu Min:   1.4114
+ Alpha:     0.9900
+ Top R:      1
+===============================================
+             CDS PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       10
+miu_min_CDS         =     1.411384
+Topr_CDS            =        1
+alpha_CDS           =     0.990000
+Phi_CDS           =     0.012533
+data_loaded_CDS     = F
+===============================================
+ 
+ Noise:    1
+ Back:     2
+ Ano:      5

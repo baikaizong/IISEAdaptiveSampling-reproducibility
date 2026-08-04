@@ -1,0 +1,28 @@
+########################################################
+#           TSBSS SIMULATION PARAMETER LOG             #
+########################################################
+ 
+ MPI Processes:       10
+ Simu Runs:         2000
+ Target ARL:        200.0000
+ 
+--- TSBSS Params ---
+===============================================
+           TSBSS PARAMETER CONFIGURATION
+===============================================
+lambda0_TS          =     0.900000
+w0_TS               =     0.010000
+sigma0_TS           =     5.000000
+sigmae_TS           =     1.000000
+sigmab_TS           =     3.000000
+niter_TS            =       20
+data_loaded_TSBSS   = F
+===============================================
+ 
+--- Experiment Config ---
+ Noise Type:    1
+ Back Index:    1
+ Ano Type:      4
+ 
+ Found Limit:     0.498151
+ IC ARL:        196.142500

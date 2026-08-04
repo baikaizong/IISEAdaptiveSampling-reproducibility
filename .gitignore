@@ -1,0 +1,28 @@
+# Build products
+/build/
+*.exe
+*.obj
+*.mod
+*.pdb
+*.lib
+*.dll
+*.manifest
+*.tlog
+
+# Generated simulation data and outputs
+/cache/*
+!/cache/README.md
+/results/
+/smoke-results/
+/smoke-cache/
+fort.*
+
+# Editors and operating systems
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+.DS_Store
+Thumbs.db
+

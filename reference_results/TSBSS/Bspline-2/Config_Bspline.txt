@@ -1,0 +1,20 @@
+### TSBSS CONFIG ###
+ Lambda0:  0.9000
+ W0:       0.0100
+ Sigma0:   5.0000
+===============================================
+           TSBSS PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =       30
+lambda0_TS          =     0.900000
+w0_TS               =     0.010000
+sigma0_TS           =     5.000000
+sigmae_TS           =     1.000000
+sigmab_TS           =     3.000000
+niter_TS            =       20
+data_loaded_TSBSS   = F
+===============================================
+ 
+ Noise:    1
+ Back:     0
+ Ano:      4

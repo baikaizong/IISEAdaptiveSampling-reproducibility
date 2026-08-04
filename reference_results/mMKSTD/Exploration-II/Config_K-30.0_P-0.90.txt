@@ -1,0 +1,34 @@
+### SIMULATION PARAMETER LOG ###
+ Exploration K:    30.0000
+ Exploitation P:    0.9000
+ Design Radius:     0.0735
+ Calculated Pho:      0.000186
+ Calculated Alpha:    1.382834
+===============================================
+          mMKSTD PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =        5
+Epah_mM              =     0.020000
+alpha_mM             =     1.382834
+pho_mM               =     0.000186
+sigmaprio_mM         =     0.100000
+lambda_mM            =     0.900000
+lambdasq_mM          =     0.810000
+Topr_mM              =        1
+near_Threshold_mM    =       10
+num_kelnear_mM       =       15
+num_disnear_mM       =     2000
+Kernel_threshold_mM  =     0.000000
+initialized_mMKSTD    = T
+data_loaded_mMKSTD    = T
+===============================================
+End of mMKSTD PARAMETER listing
+===============================================
+ 
+--- Execution Log ---
+ MPI Run Started:   20 cores.
+ Data successfully gathered and written.
+ 
+--- Performance Statistics ---
+ Wall Time:    4991.25 sec
+                 83.19 min

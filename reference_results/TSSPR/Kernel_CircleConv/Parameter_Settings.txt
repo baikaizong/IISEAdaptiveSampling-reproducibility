@@ -1,0 +1,27 @@
+########################################################
+#           TSSPR KERNEL TEST PARAMETER LOG            #
+########################################################
+ 
+ MPI Processes:        5
+ Simu Runs:         2000
+ Target ARL:        200.0000
+ 
+--- TSSPR Parameters ---
+===============================================
+           TSSPR PARAMETER CONFIGURATION
+===============================================
+miu_min_TS          =     1.000000
+Topr_TS             =        1
+cuparame_TS         =     0.500000
+data_loaded_TSSPR   = F
+===============================================
+ 
+--- Experiment Config ---
+ Noise Type:    1
+ Back Index:    2
+ Ano Type:      5
+ Back BW:          1.0000
+ Ano BW:           1.0000
+ 
+ Found Limit: ************
+ IC ARL:        196.101500

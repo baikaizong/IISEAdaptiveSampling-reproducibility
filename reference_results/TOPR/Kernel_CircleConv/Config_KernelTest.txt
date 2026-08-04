@@ -1,0 +1,17 @@
+### TOPR CONFIG ###
+ Miu Min:   1.0000
+ Delta:     0.05000000
+ Top R:      1
+===============================================
+           TOPR PARAMETER CONFIGURATION
+===============================================
+num_samplingnodes   =        5
+miu_min_TO          =     1.000000
+delta_TO            =     0.050000
+Topr_TO             =        1
+data_loaded_TOPR    = F
+===============================================
+ 
+ Noise:    1
+ Back:     2
+ Ano:      5

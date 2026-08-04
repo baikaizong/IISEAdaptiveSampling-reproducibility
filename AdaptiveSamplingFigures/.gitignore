@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+._*
+
+# Editors and notebooks
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Local temporary files
+*.tmp
+*.log
+
+# FinalVision is a versioned research artifact, not a cache.
+!FinalVision/
+!FinalVision/*.png
+!FinalVision/*.eps

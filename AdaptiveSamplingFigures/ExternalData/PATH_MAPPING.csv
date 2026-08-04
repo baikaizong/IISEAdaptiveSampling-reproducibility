@@ -1,0 +1,36 @@
+scope,status,figure,source_reference,target_relative_path,note
+required,included,solar,Figs/mM-KST_ChartingStatistics-5.txt,ExternalData/solar_statistics/mM-KST_ChartingStatistics-5.txt,
+required,included,solar,Figs/SASAM_ChartingStatistics-5.txt,ExternalData/solar_statistics/SASAM_ChartingStatistics-5.txt,
+required,included,solar,Figs/TOPR_ChartingStatistics-5.txt,ExternalData/solar_statistics/TOPR_ChartingStatistics-5.txt,
+required,included,solar,Figs/TSSPR_ChartingStatistics-5.txt,ExternalData/solar_statistics/TSSPR_ChartingStatistics-5.txt,
+required,included,solar,Figs/NAS_ChartingStatistics-5.txt,ExternalData/solar_statistics/NAS_ChartingStatistics-5.txt,
+required,included_gzip,exploration,Exploration-III/Mmdis_K-2.0_P-0.95.txt,ExternalData/exploration/Mmdis_K-2.0_P-0.95.txt.gz,lossless gzip
+required,included_gzip,exploration,Exploration-III/Mmdis_K-5.0_P-0.95.txt,ExternalData/exploration/Mmdis_K-5.0_P-0.95.txt.gz,lossless gzip
+required,included_gzip,exploration,Exploration-III/Mmdis_K-10.0_P-0.95.txt,ExternalData/exploration/Mmdis_K-10.0_P-0.95.txt.gz,lossless gzip
+required,included_gzip,exploration,Exploration-III/Mmdis_K-20.0_P-0.95.txt,ExternalData/exploration/Mmdis_K-20.0_P-0.95.txt.gz,lossless gzip
+required,included,exploration,Exploration-III/Exploration_Random.txt,ExternalData/exploration/Exploration_Random.txt,raw or .gz accepted
+required,included,shape_figure_1,mM-KSTD/ELLIPSE-2/OC_K-20.0_P_value-0.90.txt,ExternalData/shape/mM_KSTD_ellipse.txt,renamed on copy
+required,included,shape_figure_1,SASAM/ELLIPSE-1/OC_ELLIPSE.txt,ExternalData/shape/SASAM_ellipse.txt,renamed on copy
+required,included,shape_figure_2,mM-KSTD/CRESCENT-2/OC_K-20.0_P_value-0.90.txt,ExternalData/shape/mM_KSTD_crescent.txt,renamed on copy
+required,included,shape_figure_2,SASAM/CRESCENT-1/OC_CRESCENT.txt,ExternalData/shape/SASAM_crescent.txt,renamed on copy
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-5.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-5.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-10.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-10.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-15.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-15.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-20.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-20.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-25.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-25.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-30.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-30.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-35.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-35.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-40.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-40.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-45.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-45.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-50.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-50.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-55.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-55.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-60.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-60.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-65.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-65.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-70.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-70.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-75.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-75.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-80.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-80.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-85.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-85.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-90.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-90.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-95.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-95.txt,
+required,included,Q,Qnum/OC_K-10.0_P-0.90_Q-100.txt,ExternalData/q_boxplot/OC_K-10.0_P-0.90_Q-100.txt,
+required,included,frame,SolarCase/data.mat,ExternalData/solar_frames/data.mat,MATLAB variable data has shape 232x292x300

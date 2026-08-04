@@ -1,0 +1,26 @@
+figure,status,generator,input,note
+ABS,reproducible,src/monitoring_area.py,generated deterministically,EPS contains a raster heatmap layer
+Bspline_anomaly,reproducible,src/bspline_anomaly.py,generated deterministically,EPS contains raster heatmap layers
+ConAnomaly,reproducible,src/convolution_anomaly.py,generated deterministically,EPS contains raster heatmap layers
+Flowchart,reproducible_from_vector_asset,src/generate_all.py,assets/Flowchart.eps,PNG is rendered at 600 dpi
+NAS,reproducible,src/solar_charts.py,ExternalData/solar_statistics/NAS_ChartingStatistics-5.txt,native vector EPS
+NAS_log,reproducible,src/solar_charts.py,ExternalData/solar_statistics/NAS_ChartingStatistics-5.txt,native vector EPS
+NAS_log_points,reproducible,src/solar_charts.py,ExternalData/solar_statistics/NAS_ChartingStatistics-5.txt,native vector EPS
+Q,reproducible,src/q_boxplot.py,ExternalData/q_boxplot/OC_K-*_P-*_Q-*.txt,native vector EPS
+SASAM,reproducible,src/solar_charts.py,ExternalData/solar_statistics/SASAM_ChartingStatistics-5.txt,native vector EPS
+SASAM_log,reproducible,src/solar_charts.py,ExternalData/solar_statistics/SASAM_ChartingStatistics-5.txt,native vector EPS
+SASAM_log_points,reproducible,src/solar_charts.py,ExternalData/solar_statistics/SASAM_ChartingStatistics-5.txt,native vector EPS
+TRAS,reproducible,src/solar_charts.py,ExternalData/solar_statistics/TOPR_ChartingStatistics-5.txt,native vector EPS
+TRAS_log,reproducible,src/solar_charts.py,ExternalData/solar_statistics/TOPR_ChartingStatistics-5.txt,native vector EPS
+TRAS_log_points,reproducible,src/solar_charts.py,ExternalData/solar_statistics/TOPR_ChartingStatistics-5.txt,native vector EPS
+TSSRP,reproducible,src/solar_charts.py,ExternalData/solar_statistics/TSSPR_ChartingStatistics-5.txt,native vector EPS
+TSSRP_log,reproducible,src/solar_charts.py,ExternalData/solar_statistics/TSSPR_ChartingStatistics-5.txt,native vector EPS
+TSSRP_log_points,reproducible,src/solar_charts.py,ExternalData/solar_statistics/TSSPR_ChartingStatistics-5.txt,native vector EPS
+exploration,reproducible,src/exploration.py,ExternalData/exploration/*.txt[.gz],native vector EPS
+frame,reproducible,src/solar_frames.py,ExternalData/solar_frames/data.mat,EPS contains raster solar-frame layers and vector labels
+mM_KSTD,reproducible,src/solar_charts.py,ExternalData/solar_statistics/mM-KST_ChartingStatistics-5.txt,native vector EPS
+mM_KSTD_log,reproducible,src/solar_charts.py,ExternalData/solar_statistics/mM-KST_ChartingStatistics-5.txt,native vector EPS
+mM_KSTD_log_points,reproducible,src/solar_charts.py,ExternalData/solar_statistics/mM-KST_ChartingStatistics-5.txt,native vector EPS
+shape_figure_1,reproducible,src/shape_figures.py,ExternalData/shape/*.txt,EPS contains raster heatmap layers
+shape_figure_2,reproducible,src/shape_figures.py,ExternalData/shape/*.txt,EPS contains raster heatmap layers
+sparsecase,reproducible,src/sparse_case.py,generated deterministically,native vector EPS

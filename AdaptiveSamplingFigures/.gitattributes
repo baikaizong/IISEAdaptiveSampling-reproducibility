@@ -1,0 +1,19 @@
+* text=auto eol=lf
+
+*.py text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+*.txt text eol=lf
+Makefile text eol=lf
+
+# Binary and generated research artifacts should not produce text diffs.
+*.png binary
+*.eps binary
+*.mat binary
+*.gz binary
+ExternalData/**/*.txt binary
+
+# Keep generated figures and input datasets out of GitHub language statistics.
+FinalVision/** linguist-generated=true
+ExternalData/** linguist-vendored=true
+assets/** linguist-vendored=true

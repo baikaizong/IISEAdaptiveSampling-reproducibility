@@ -94,6 +94,18 @@ function(add_evaluation target app_dir)
     target_link_libraries(${target} PRIVATE methods project_dependencies)
 endfunction()
 
+add_executable(case_study CaseStudy/CaseStudy.f90)
+set(case_study_module_dir "${CMAKE_CURRENT_BINARY_DIR}/modules/case_study")
+set_target_properties(case_study PROPERTIES
+    Fortran_MODULE_DIRECTORY "${case_study_module_dir}"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
+target_include_directories(case_study PRIVATE "${case_study_module_dir}")
+target_link_libraries(case_study PRIVATE project_dependencies)
+if(CMAKE_Fortran_COMPILER_ID MATCHES "Intel")
+    target_compile_options(case_study PRIVATE
+        $<$<COMPILE_LANGUAGE:Fortran>:/heap-arrays:0>)
+endif()
+
 add_evaluation(mmkstd_evaluation mmkstd)
 add_evaluation(cds_evaluation cds)
 add_evaluation(nas_evaluation nas)

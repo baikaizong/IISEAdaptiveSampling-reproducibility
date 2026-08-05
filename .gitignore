@@ -9,6 +9,10 @@
 *.manifest
 *.tlog
 
+# Visual Studio Fortran project files
+*.sln
+*.vfproj
+
 # Generated simulation data and outputs
 /cache/*
 !/cache/README.md

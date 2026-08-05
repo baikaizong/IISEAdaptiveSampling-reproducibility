@@ -13,6 +13,7 @@ The repository is organized as one integrated codebase. Every evaluation program
 - [Build instructions](#build-instructions)
 - [Run instructions](#run-instructions)
 - [Experiment entry points](#experiment-entry-points)
+- [Solar monitoring case study](#solar-monitoring-case-study)
 - [Reproducibility protocol](#reproducibility-protocol)
 - [Parameters and method-specific behavior](#parameters-and-method-specific-behavior)
 - [Cache and result data](#cache-and-result-data)
@@ -32,6 +33,7 @@ The repository is organized as one integrated codebase. Every evaluation program
 | `topr` | `topr_evaluation.exe` | TOPR comparison method |
 | `tsbss` | `tsbss_evaluation.exe` | TSBSS comparison method |
 | `tsspr` | `tsspr_evaluation.exe` | TSSPR comparison method |
+| `case-study` | `case_study.exe` | Real solar-data monitoring workflow |
 
 The Fortran module and procedure identifiers `mMSTD_mod`, `mMSTD`, `mMSTDII`, and `Run_mMSTD_*` are the stable internal API for mMKSTD. The repository name, executable, result directories, and user documentation use the mMKSTD name.
 
@@ -42,6 +44,12 @@ The Fortran module and procedure identifiers `mMSTD_mod`, `mMSTD`, `mMSTDII`, an
 |-- CMakeLists.txt
 |-- CMakePresets.json
 |-- README.md
+|-- AdaptiveSamplingFigures/
+|   `-- figure pipeline and canonical solar data/results
+|-- CaseStudy/
+|   |-- CaseStudy.f90
+|   |-- case_study_data.py
+|   `-- README.md
 |-- cache/
 |   `-- README.md
 |-- reference_results/
@@ -247,6 +255,30 @@ At least two MPI processes are required by the master-worker evaluation routines
 
 Each experiment creates a method/scenario subdirectory below `RESULTS_ROOT`. Configuration files such as `Parameter_Settings.txt` and `Config_*.txt` record the effective method and simulation settings beside the numerical output.
 
+## Solar monitoring case study
+
+`case_study.exe` computes the five monitoring-statistic series used by the
+solar-data figures.
+
+Prepare the normalized cache and run with the fixed default seed:
+
+```bat
+python CaseStudy\case_study_data.py run
+```
+
+Generated cache and result files are written below `cache/case-study` and
+`results/case-study`, respectively, and are ignored by Git. The raw MAT file
+and five published series are under `AdaptiveSamplingFigures/ExternalData`.
+Compare a run with those plotting
+inputs using:
+
+```bat
+python CaseStudy\case_study_data.py verify
+```
+
+See [`CaseStudy/README.md`](CaseStudy/README.md) for data preparation, running,
+and reproducibility details.
+
 ## Reproducibility protocol
 
 For a controlled replication:
@@ -321,6 +353,7 @@ sasam_evaluation.exe
 topr_evaluation.exe
 tsbss_evaluation.exe
 tsspr_evaluation.exe
+case_study.exe
 ```
 
 Run the startup suite after building:

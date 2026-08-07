@@ -1,11 +1,3 @@
-"""Visualize the convolution-based anomaly observation model.
-
-The single-row equation shows a smooth Gaussian background plus a localized
-impulse anomaly, convolution with a normalized Gaussian kernel, addition of
-measurement noise, and the resulting observed field. A shared robust color
-normalization makes amplitudes comparable across all field panels.
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -16,18 +8,18 @@ from matplotlib.cm import ScalarMappable
 from scipy.signal import convolve2d
 
 # ============================================================
-# Central typography controls for every label and annotation in the figure.
+# 全局字体设置：只修改这一处即可改变所有文字大小
 # ============================================================
-GLOBAL_FONT_SIZE = 28
-SMALL_FONT_SIZE  = GLOBAL_FONT_SIZE
+GLOBAL_FONT_SIZE = 32
 TITLE_FONT_SIZE  = GLOBAL_FONT_SIZE
 SYMBOL_FONT_SIZE = GLOBAL_FONT_SIZE
-LABEL_FONT_SIZE  = GLOBAL_FONT_SIZE
 TICK_FONT_SIZE   = GLOBAL_FONT_SIZE
-KERNEL_TEXT_SIZE = GLOBAL_FONT_SIZE
+# 高斯核单元格内三位小数的最大无重叠字号。
+KERNEL_TEXT_SIZE = 12.5
+FIGURE_SIZE = (30, 5.2)
 
 # ============================================================
-# Model and grid parameters. The fixed seed preserves anomaly location and noise.
+# 参数设置
 # ============================================================
 np.random.seed(42)
 
@@ -43,20 +35,20 @@ N_small = num_x
 N_win   = 1 + windowsize
 
 # ============================================================
-# Synthetic field construction
+# 数据生成
 # ============================================================
 
-# Gaussian background defined on the padded grid required by valid convolution.
+# 背景高斯噪声
 bg_large = np.random.normal(0, sigma_b, (N_large, N_large))
 
-# Place one impulse anomaly far enough from the boundary to survive valid cropping.
+# 单点异常场
 anom_large = np.zeros((N_large, N_large))
 margin = N_win // 2 + 1
 ry = np.random.randint(margin, N_large - margin)
 rx = np.random.randint(margin, N_large - margin)
 anom_large[ry, rx] = anom_strength
 
-# Construct a normalized discrete Gaussian kernel; normalization preserves mass.
+# 高斯卷积核
 cy_k, cx_k = (N_win - 1) / 2, (N_win - 1) / 2
 ys, xs = np.mgrid[0:N_win, 0:N_win]
 
@@ -66,18 +58,18 @@ kernel_raw = np.exp(
 )
 kernel = kernel_raw / kernel_raw.sum()
 
-# ``valid`` convolution reduces the padded field to the target 20 x 20 grid.
+# 卷积信号
 combined_large = bg_large + anom_large
 img_conv = convolve2d(combined_large, kernel, mode='valid')
 
-# Independent observation noise is added after the convolution step.
+# 观测噪声
 noise_obs = np.random.normal(0, sigma_obs, (N_small, N_small))
 
-# Final observed field in the monitoring model.
+# 最终观测
 img_final = img_conv + noise_obs
 
 # ============================================================
-# Robust shared color scale based on pooled 1st and 99th percentiles.
+# 统一色标范围
 # ============================================================
 all_data = np.concatenate([
     bg_large.flatten(),
@@ -94,7 +86,7 @@ abs_bound = max(abs(p_low), abs(p_high))
 vmin_g, vmax_g = -abs_bound, abs_bound
 
 # ============================================================
-# Map array indices to the normalized [0, 1] coordinates used by ``imshow``.
+# 异常位置归一化
 # ============================================================
 anom_cx_norm = (rx + 0.5) / N_large
 anom_cy_norm = (ry + 0.5) / N_large
@@ -106,7 +98,7 @@ conv_cx_norm = np.clip((conv_rx + 0.5) / N_small, 0.05, 0.95)
 conv_cy_norm = np.clip((conv_ry + 0.5) / N_small, 0.05, 0.95)
 
 # ============================================================
-# Publication typography and mathematical text rendering.
+# 绘图风格设置
 # ============================================================
 plt.rcParams.update({
     'font.family': 'serif',
@@ -125,13 +117,16 @@ cmap = 'RdBu_r'
 extent = [0, 1, 0, 1]
 
 # ============================================================
-# Reusable panel helpers
+# 辅助函数
 # ============================================================
 
 def format_ax(ax, title=None):
-    """Apply consistent titles, normalized ticks, and unobtrusive borders."""
+    """统一设置子图标题、坐标轴刻度和边框样式。"""
+    ax.set_aspect('equal', adjustable='box')
+
     if title:
-        ax.set_title(title, fontsize=TITLE_FONT_SIZE, pad=12)
+        title_artist = ax.set_title(title, fontsize=TITLE_FONT_SIZE, pad=8)
+        title_artist.set_linespacing(0.9)
 
     ax.set_xticks([0, 1.0])
     ax.set_yticks([0, 1.0])
@@ -153,21 +148,8 @@ def format_ax(ax, title=None):
         sp.set_linewidth(0.8)
 
 
-def add_size_label(ax, text):
-    """Place a centered grid-size or parameter annotation below a panel."""
-    ax.text(
-        0.5, -0.22, text,
-        transform=ax.transAxes,
-        fontsize=LABEL_FONT_SIZE,
-        ha='center',
-        va='top',
-        color='#444444',
-        style='italic'
-    )
-
-
 def sym_ax(ax, sym):
-    """Render an arithmetic operator in a dedicated layout column."""
+    """绘制运算符号，例如 +, =, ⊛, 括号。"""
     ax.axis('off')
     ax.text(
         0.5, 0.5, sym,
@@ -180,12 +162,7 @@ def sym_ax(ax, sym):
 
 
 def draw_kernel_panel(ax, kernel, title=None):
-    """Render the Gaussian kernel as a labeled matrix.
-
-    Cell luminance encodes weight magnitude, while printed values expose the
-    exact normalized coefficients. Text switches from dark to white when the
-    cell exceeds 55% of the maximum to maintain contrast.
-    """
+    """绘制高斯卷积核矩阵。"""
     n = kernel.shape[0]
 
     ax.set_xlim(-0.5, n - 0.5)
@@ -194,7 +171,8 @@ def draw_kernel_panel(ax, kernel, title=None):
     ax.axis('off')
 
     if title:
-        ax.set_title(title, fontsize=TITLE_FONT_SIZE, pad=12)
+        title_artist = ax.set_title(title, fontsize=TITLE_FONT_SIZE, pad=8)
+        title_artist.set_linespacing(0.9)
 
     norm = Normalize(vmin=0, vmax=kernel.max())
     cmap_k = plt.get_cmap('Blues')
@@ -220,48 +198,36 @@ def draw_kernel_panel(ax, kernel, title=None):
                 col, row, f'{val:.3f}',
                 ha='center',
                 va='center',
-                fontsize=KERNEL_TEXT_SIZE * 0.45,
+                fontsize=KERNEL_TEXT_SIZE,
                 color=txt_color,
                 fontfamily='serif'
             )
 
-    ax.text(
-        n / 2 - 0.5,
-        -1.25,
-        f'$(1+{windowsize})\\times(1+{windowsize})$,  $\\sigma_k={sigma_kernel}$',
-        ha='center',
-        va='top',
-        fontsize=LABEL_FONT_SIZE,
-        style='italic',
-        color='#444444',
-        transform=ax.transData
-    )
-
 # ============================================================
-# One-row equation layout. Narrow columns contain operators and parentheses.
+# 一行布局
 # ============================================================
 col_ratios = [
     0.08, 1.0, 0.15, 1.0, 0.08, 0.15,
-    0.85, 0.15, 1.0, 0.15, 1.0, 0.15, 1.0
+    1.0, 0.15, 1.0, 0.15, 1.0, 0.15, 1.0
 ]
 
-fig = plt.figure(figsize=(30, 5.6))
+fig = plt.figure(figsize=FIGURE_SIZE)
 
 gs = gridspec.GridSpec(
     1, 13,
     width_ratios=col_ratios,
     left=0.02,
     right=0.915,
-    top=0.86,
-    bottom=0.25,
+    top=0.82,
+    bottom=0.10,
     wspace=0.04
 )
 
-# Opening parenthesis for the pre-convolution sum.
+# 左括号
 ax_lp = fig.add_subplot(gs[0, 0])
 sym_ax(ax_lp, '(')
 
-# Background field.
+# 背景噪声
 ax1 = fig.add_subplot(gs[0, 1])
 ax1.imshow(
     bg_large,
@@ -272,16 +238,12 @@ ax1.imshow(
     origin='lower'
 )
 format_ax(ax1, title='Background noise')
-add_size_label(
-    ax1,
-    f'$({num_x}+{windowsize})\\times({num_x}+{windowsize})$,  $\\sigma_b={sigma_b}$'
-)
 
-# Addition operator between background and anomaly.
+# 加号
 ax_p1 = fig.add_subplot(gs[0, 2])
 sym_ax(ax_p1, '+')
 
-# Sparse anomaly field with a red location marker.
+# 异常场
 ax2 = fig.add_subplot(gs[0, 3])
 ax2.imshow(
     anom_large,
@@ -292,10 +254,6 @@ ax2.imshow(
     origin='lower'
 )
 format_ax(ax2, title='Anomaly')
-add_size_label(
-    ax2,
-    f'$({num_x}+{windowsize})\\times({num_x}+{windowsize})$,  strength $={anom_strength}$'
-)
 ax2.add_patch(
     Circle(
         (anom_cx_norm, anom_cy_norm),
@@ -306,23 +264,23 @@ ax2.add_patch(
     )
 )
 
-# Closing parenthesis for the pre-convolution sum.
+# 右括号
 ax_rp = fig.add_subplot(gs[0, 4])
 sym_ax(ax_rp, ')')
 
-# Convolution operator.
+# 卷积符号
 ax_cs = fig.add_subplot(gs[0, 5])
 sym_ax(ax_cs, '$\\circledast$')
 
-# Explicit Gaussian-kernel matrix.
+# 高斯核
 ax3 = fig.add_subplot(gs[0, 6])
 draw_kernel_panel(ax3, kernel, title='Gaussian kernel')
 
-# Equality after convolution.
+# 等号
 ax_eq1 = fig.add_subplot(gs[0, 7])
 sym_ax(ax_eq1, '=')
 
-# Convolved signal with the transformed anomaly location marked.
+# 卷积信号
 ax4 = fig.add_subplot(gs[0, 8])
 ax4.imshow(
     img_conv,
@@ -333,7 +291,6 @@ ax4.imshow(
     origin='lower'
 )
 format_ax(ax4, title='Convolved signal')
-add_size_label(ax4, f'${num_x}\\times{num_x}$')
 ax4.add_patch(
     Circle(
         (conv_cx_norm, conv_cy_norm),
@@ -344,11 +301,11 @@ ax4.add_patch(
     )
 )
 
-# Addition operator before observation noise.
+# 加号
 ax_p2 = fig.add_subplot(gs[0, 9])
 sym_ax(ax_p2, '+')
 
-# Independent observation-noise field.
+# 观测噪声
 ax5 = fig.add_subplot(gs[0, 10])
 ax5.imshow(
     noise_obs,
@@ -359,16 +316,12 @@ ax5.imshow(
     origin='lower'
 )
 format_ax(ax5, title='Noise')
-add_size_label(
-    ax5,
-    f'${num_x}\\times{num_x}$,  $\\sigma_{{\\mathrm{{obs}}}}={sigma_obs}$'
-)
 
-# Equality before the final observation.
+# 等号
 ax_eq2 = fig.add_subplot(gs[0, 11])
 sym_ax(ax_eq2, '=')
 
-# Final observed field.
+# 最终观测
 ax6 = fig.add_subplot(gs[0, 12])
 ax6.imshow(
     img_final,
@@ -379,7 +332,6 @@ ax6.imshow(
     origin='lower'
 )
 format_ax(ax6, title='Final observation')
-add_size_label(ax6, f'${num_x}\\times{num_x}$')
 ax6.add_patch(
     Circle(
         (conv_cx_norm, conv_cy_norm),
@@ -391,9 +343,9 @@ ax6.add_patch(
 )
 
 # ============================================================
-# Shared colorbar for every diverging field panel.
+# 共用色条
 # ============================================================
-cax = fig.add_axes([0.926, 0.25, 0.010, 0.61])
+cax = fig.add_axes([0.926, 0.10, 0.010, 0.72])
 
 sm = ScalarMappable(
     cmap=cmap,
@@ -409,22 +361,20 @@ cb.outline.set_edgecolor('#B0B0B0')
 cb.outline.set_linewidth(0.8)
 
 # ============================================================
-# Export a high-resolution preview and a publication-oriented EPS artifact.
+# 保存图片
 # ============================================================
 output = Path(__file__).resolve().parents[1] / 'FinalVision' / 'ConAnomaly'
 plt.savefig(
     output.with_suffix('.png'),
     format='png',
-    dpi=600,
-    bbox_inches='tight'
+    dpi=600
 )
 
 plt.savefig(
     output.with_suffix('.eps'),
     format='eps',
-    dpi=300,
-    bbox_inches='tight'
+    dpi=300
 )
 
-print(f"Saved: {output.with_suffix('.png')} and {output.with_suffix('.eps')}")
+print("Saved!")
 plt.close(fig)
